@@ -3,6 +3,7 @@ package cn.com.huangdc.io.IODemo;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.Scanner;
 
 public class FileTest {
 
@@ -17,5 +18,8 @@ public class FileTest {
         System.out.println(file.getParent());
 
         System.out.println(file.exists());
+
+        Scanner sn = new Scanner(System.in);
+        System.out.println(1);
     }
 }
