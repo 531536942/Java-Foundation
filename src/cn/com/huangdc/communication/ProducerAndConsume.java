@@ -3,6 +3,7 @@ package cn.com.huangdc.communication;
 /**
 * <pre>类名: ProducerAndConsume</pre>
 * <pre>描述: 消费者与生产者。产品过多时，生产者等待。产品不够时，消费者等待</pre>
+* <pre>都对clerk上锁，生产和消费公用同一把锁</pre>
 * <pre>版权: 税友软件集团股份有限公司</pre>
 * <pre>日期: 2020/5/25 22:14</pre>
 * <pre>作者: Administrator</pre>
@@ -60,6 +61,12 @@ class Clerk {
     int product;
 
     public synchronized void addProduct() {
+        System.out.println(Thread.currentThread().getName() + ":来生产了11111111111");
+        try {
+            Thread.currentThread().sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if (product >= 20) {
             try {
                 System.out.println(Thread.currentThread().getName() + ":产品太多了，等一等");
@@ -74,6 +81,12 @@ class Clerk {
     }
 
     public synchronized void consumeProduct() {
+        System.out.println(Thread.currentThread().getName() + ":来消费了2222222222");
+        try {
+            Thread.currentThread().sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if (product <= 0) {
             try {
                 System.out.println(Thread.currentThread().getName() + ":产品不够了，等一等");
