@@ -1,5 +1,5 @@
 
-Thread 常用方法
+一、Thread 常用方法
 1、start()：启动线程
 2、run()：线程执行的内容
 3、currentThread()：静态，调取当前线程
@@ -8,3 +8,7 @@ Thread 常用方法
 6、join()：暂停当前线程，启动执行join的线程，等该线程执行完，再继续当前线程
 7、isAlive()：是否存活
 8、sleep()：睡眠
+
+二、synchronized
+1、sleep,yield，不释放锁
+2、wait，释放锁

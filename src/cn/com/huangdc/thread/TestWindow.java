@@ -17,9 +17,15 @@ class Window implements Runnable {
     int ticket = 100;
     Object obj = new Object();
 
+    /**
+     * @Description: 多线程共享数据，使用同步处理
+     * @author Administrator
+     * @date 2020/5/25 20:38
+     */
     @Override
     public void run() {
         while (true) {
+            // 1、同步代码块
             synchronized (obj) {
                 if (ticket > 0) {
                     System.out.println(Thread.currentThread().getName() + "窗口：售票号" + ticket--);
@@ -27,6 +33,17 @@ class Window implements Runnable {
                     break;
                 }
             }
+
+            // 2、同步方法
+            sole();
+        }
+    }
+
+    private synchronized void sole () {// this充当锁
+        if (ticket > 0) {
+            System.out.println(Thread.currentThread().getName() + "窗口：售票号" + ticket--);
         }
     }
 }
+
+
