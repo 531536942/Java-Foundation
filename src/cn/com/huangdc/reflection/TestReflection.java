@@ -22,6 +22,9 @@ import java.util.Properties;
  */
 public class TestReflection {
 
+    /**
+     * 获取类的相关信息
+     */
     @Test
     public void testClass() {
         Class clazz = Person.class;
@@ -67,6 +70,9 @@ public class TestReflection {
         }
     }
 
+    /**
+     * ClassLoader的使用
+     */
     @Test
     public void testClassLoader() throws ClassNotFoundException, IOException {
         // 系统类加载器
@@ -94,6 +100,11 @@ public class TestReflection {
         System.out.println(p.getProperty("user"));
     }
 
+    /**
+     * 1、属性的使用和相关信息的获取
+     * 2、方法的使用和相关信息获取
+     * 3、类的实例化
+     */
     @Test
     public void test() throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException,
             ClassNotFoundException {
