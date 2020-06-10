@@ -14,7 +14,7 @@ public class TestUDP1 {
     @Test
     public void client() throws IOException {
         DatagramSocket socket = new DatagramSocket();
-
+        // 每个数据包不能超过64K
         byte [] b = "你好".getBytes();
         DatagramPacket packet = new DatagramPacket(b, 0, b.length,
                 InetAddress.getByName("127.0.0.1"), 9090);
